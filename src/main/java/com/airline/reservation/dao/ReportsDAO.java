@@ -9,9 +9,9 @@ import java.util.*;
 
 public class ReportsDAO {
 
-    private final String URL = "jdbc:postgresql://localhost:5432/airline";
+    private final String URL = "jdbc:postgresql://localhost:5432/airline_clean";
     private final String USER = "postgres";
-    private final String PASS = "airlink123";
+    private final String PASS = "airline123";
 
     private Connection conn() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);

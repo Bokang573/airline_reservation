@@ -8,9 +8,9 @@ import java.util.List;
 
 public class FlightDAO {
 
-    private final String url = "jdbc:postgresql://localhost:5432/airline";
+    private final String url = "jdbc:postgresql://localhost:5432/airline_clean";
     private final String user = "postgres";
-    private final String password = "airlink123";
+    private final String password = "airline123";
 
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
