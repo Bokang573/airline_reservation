@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.airline.reservation.ui.MainController">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="Logout" onAction="#logout"/>
+                <MenuItem text="Exit" onAction="#exitApp"/>
+            </Menu>
+            <Menu text="Navigate">
+                <MenuItem text="Select Flight" onAction="#goToFlightSelection"/>
+                <MenuItem text="Admin Dashboard" onAction="#goToAdmin"/>
+                <MenuItem text="Pagination Demo" onAction="#goToPaging"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <Label text="Welcome to Airline Reservation" style="-fx-font-size:20px;"/>
+            <HBox spacing="10">
+                <Button text="Select Flight" onAction="#goToFlightSelection"/>
+                <Button text="Admin Dashboard" onAction="#goToAdmin"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

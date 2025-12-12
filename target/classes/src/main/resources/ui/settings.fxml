@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.SettingsController"
+            stylesheets="@../styles/airlink-theme.css">
+
+    <!-- Top bar -->
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="System Settings"
+                   style="-fx-font-size:22px; -fx-font-weight:700;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label text="Theme:" styleClass="small"/>
+            <ToggleButton fx:id="themeToggle" text="Dark" onAction="#toggleTheme"/>
+        </HBox>
+    </top>
+
+    <!-- Center -->
+    <center>
+        <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 22;">
+
+            <!-- Profile card -->
+            <HBox spacing="18" alignment="CENTER_LEFT" styleClass="card" prefWidth="920" prefHeight="140">
+                <VBox spacing="6">
+                    <Label text="Admin profile" style="-fx-font-size:16px; -fx-font-weight:700;"/>
+                    <Label text="Update display name and contact details" styleClass="small"/>
+                </VBox>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <GridPane hgap="12" vgap="10" alignment="CENTER_RIGHT">
+                    <Label text="Display name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtDisplayName" promptText="e.g. Admin User" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Contact email:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtContactEmail" promptText="admin@airlink.com" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Button text="Save Profile" onAction="#saveProfile" styleClass="btn-primary" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                </GridPane>
+            </HBox>
+
+            <!-- System config card -->
+            <HBox spacing="18" alignment="CENTER_LEFT" styleClass="card" prefWidth="920" prefHeight="160">
+                <VBox spacing="6">
+                    <!-- FIXED: escaped ampersand -->
+                    <Label text="Database &amp; system" style="-fx-font-size:16px; -fx-font-weight:700;"/>
+                    <Label text="Configure database connection and test" styleClass="small"/>
+                </VBox>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <GridPane hgap="12" vgap="10" alignment="CENTER_RIGHT">
+                    <Label text="DB Host:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtDbHost" promptText="localhost" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="DB Port:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtDbPort" promptText="5432" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="DB Name:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtDbName" promptText="com.airline" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="DB User:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtDbUser" promptText="postgres" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="DB Password:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <PasswordField fx:id="txtDbPassword" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <HBox spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="5" alignment="CENTER_RIGHT">
+                        <Button text="Test Connection" onAction="#testDbConnection" styleClass="btn-ghost"/>
+                        <Button text="Save DB" onAction="#saveDbConfig" styleClass="btn-primary"/>
+                    </HBox>
+                </GridPane>
+            </HBox>
+
+            <!-- App info + restart hint -->
+            <HBox spacing="18" alignment="CENTER_LEFT" styleClass="card" prefWidth="920">
+                <VBox spacing="4">
+                    <Label text="Application" style="-fx-font-size:16px; -fx-font-weight:700;"/>
+                    <Label text="AirLink system — v1.0.0" styleClass="small"/>
+                    <Label text="Assignment brief: /mnt/data/AIRLINE RESERVATION - Group Project-OOP2 (1).pdf" styleClass="small"/>
+                </VBox>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Restart App (manual)" onAction="#showRestartMessage" styleClass="btn-ghost"/>
+            </HBox>
+
+        </VBox>
+    </center>
+</BorderPane>

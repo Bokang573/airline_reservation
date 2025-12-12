@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.BookingsController"
+            stylesheets="@../styles/airlink-theme.css">
+
+    <!-- ===================== TOP BAR ===================== -->
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="Bookings Management"
+                   style="-fx-font-size:22px; -fx-font-weight:700;"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Label text="Theme:" styleClass="small"/>
+            <ToggleButton fx:id="themeToggle" text="Dark" onAction="#toggleTheme"/>
+        </HBox>
+    </top>
+
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <center>
+        <VBox spacing="25" alignment="TOP_CENTER" style="-fx-padding: 20;">
+
+            <!-- BOOKING FORM -->
+            <GridPane hgap="12" vgap="12" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33"/>
+                    <ColumnConstraints percentWidth="33"/>
+                    <ColumnConstraints percentWidth="33"/>
+                </columnConstraints>
+
+                <!-- Select flight -->
+                <Label text="Flight:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbFlights" promptText="Select Flight"
+                          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <!-- Select passenger -->
+                <Label text="Passenger:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbPassengers" promptText="Select Passenger"
+                          GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <!-- Seat -->
+                <Label text="Seat No:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtSeat" promptText="E.g. 12B"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <!-- Button -->
+                <Button fx:id="btnAddBooking"
+                        text="Create Booking"
+                        onAction="#createBooking"
+                        styleClass="btn-primary"
+                        prefWidth="180"
+                        GridPane.rowIndex="3"
+                        GridPane.columnIndex="2"/>
+            </GridPane>
+
+
+            <!-- BOOKINGS TABLE -->
+            <VBox spacing="10" styleClass="card" prefHeight="400" prefWidth="880">
+                <Label text="Bookings List" style="-fx-font-size:18px; -fx-font-weight:700;"/>
+
+                <TableView fx:id="tableBookings" VBox.vgrow="ALWAYS">
+
+                    <columns>
+                        <TableColumn fx:id="colBookingId"  text="Booking ID"  prefWidth="120"/>
+                        <TableColumn fx:id="colFlight"     text="Flight"       prefWidth="160"/>
+                        <TableColumn fx:id="colPassenger"  text="Passenger"    prefWidth="200"/>
+                        <TableColumn fx:id="colSeat"       text="Seat No"      prefWidth="120"/>
+                        <TableColumn fx:id="colDate"       text="Date"         prefWidth="180"/>
+                    </columns>
+
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

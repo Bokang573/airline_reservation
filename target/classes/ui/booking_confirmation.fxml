@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.BookingConfirmationController"
+            stylesheets="@/styles/airlink-theme.css">
+
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="Booking Confirmation - Step 4 of 4" style="-fx-font-size:22px; -fx-font-weight:700;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <ProgressBar progress="1.0" prefWidth="200"/>
+            <Label text="Complete!" styleClass="small" style="-fx-font-weight:700; -fx-text-fill:#27ae60;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="25" alignment="TOP_CENTER" style="-fx-padding: 25;">
+
+                <!-- Success Header -->
+                <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+                    <StackPane>
+                        <Circle radius="40" fill="#27ae60" stroke="#2ecc71" strokeWidth="2"/>
+                        <Text text="✓" style="-fx-font-size: 30; -fx-fill: white; -fx-font-weight: bold;"/>
+                    </StackPane>
+                    <Label text="Booking Confirmed!" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+                    <Label text="Your flight reservation has been successfully booked" style="-fx-text-fill: #7f8c8d;"/>
+                </VBox>
+
+                <!-- Ticket Details Card -->
+                <VBox spacing="20" styleClass="card" prefWidth="800" style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-text-fill: white;">
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <VBox spacing="5">
+                            <Label text="E-TICKET" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+                            <Label text="ELECTRONIC TICKET RECEIPT" style="-fx-text-fill: rgba(255,255,255,0.8); -fx-font-size: 10px;"/>
+                        </VBox>
+                        <Pane HBox.hgrow="ALWAYS"/>
+                        <VBox spacing="5" alignment="CENTER_RIGHT">
+                            <Label fx:id="lblPnrNumber" text="PNR: AL5X9B2M" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                            <Label text="Status: CONFIRMED" style="-fx-text-fill: #a3e4d7; -fx-font-weight: bold;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Flight Route -->
+                    <HBox spacing="30" alignment="CENTER">
+                        <VBox spacing="5" alignment="CENTER">
+                            <Label fx:id="lblDepartureCity" text="DEL" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+                            <Label fx:id="lblDepartureName" text="Delhi" style="-fx-text-fill: rgba(255,255,255,0.9);"/>
+                        </VBox>
+
+                        <VBox spacing="2" alignment="CENTER">
+                            <HBox spacing="5" alignment="CENTER">
+                                <Line stroke="white" strokeWidth="2" endX="50"/>
+                                <Polygon points="0,0 5,-5 5,5" fill="white"/>
+                            </HBox>
+                            <Label fx:id="lblDuration" text="2h 00m" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
+                            <Label fx:id="lblFlightNumber" text="AL101" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                        </VBox>
+
+                        <VBox spacing="5" alignment="CENTER">
+                            <Label fx:id="lblArrivalCity" text="BOM" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+                            <Label fx:id="lblArrivalName" text="Mumbai" style="-fx-text-fill: rgba(255,255,255,0.9);"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Flight Details -->
+                    <GridPane hgap="20" vgap="15" style="-fx-padding: 20; -fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 8;">
+                        <Label text="Departure Time:" style="-fx-text-fill: rgba(255,255,255,0.9);" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label fx:id="lblDepartureTime" text="08:00" style="-fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Label text="Arrival Time:" style="-fx-text-fill: rgba(255,255,255,0.9);" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label fx:id="lblArrivalTime" text="10:00" style="-fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <Label text="Date:" style="-fx-text-fill: rgba(255,255,255,0.9);" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label fx:id="lblTravelDate" text="Dec 15, 2024" style="-fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                        <Label text="Class:" style="-fx-text-fill: rgba(255,255,255,0.9);" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        <Label fx:id="lblClass" text="Economy" style="-fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                        <Label text="Seat:" style="-fx-text-fill: rgba(255,255,255,0.9);" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Label fx:id="lblSeat" text="14A" style="-fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                        <Label text="Terminal:" style="-fx-text-fill: rgba(255,255,255,0.9);" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Label text="T2" style="-fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                    </GridPane>
+                </VBox>
+
+                <!-- Passenger & Fare Details -->
+                <HBox spacing="20" alignment="TOP_LEFT">
+                    <!-- Passenger Details -->
+                    <VBox spacing="15" styleClass="card" prefWidth="400">
+                        <Label text="Passenger Details" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <VBox spacing="10">
+                            <HBox spacing="10">
+                                <Label text="Name:" style="-fx-font-weight: 600; -fx-min-width: 100;"/>
+                                <Label fx:id="lblPassengerName" text="John Doe" style="-fx-font-weight: 600;"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Concession:" style="-fx-font-weight: 600; -fx-min-width: 100;"/>
+                                <Label fx:id="lblConcession" text="Student (25% discount)" style="-fx-text-fill: #27ae60; -fx-font-weight: 600;"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Contact:" style="-fx-font-weight: 600; -fx-min-width: 100;"/>
+                                <Label text="+91 9876543210" style="-fx-font-weight: 600;"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Email:" style="-fx-font-weight: 600; -fx-min-width: 100;"/>
+                                <Label text="john.doe@example.com" style="-fx-font-weight: 600;"/>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                    <!-- Fare Breakdown -->
+                    <VBox spacing="15" styleClass="card" prefWidth="350">
+                        <Label text="Fare Summary" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <VBox spacing="8">
+                            <HBox spacing="10">
+                                <Label text="Base Fare:" style="-fx-min-width: 120;"/>
+                                <Pane HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lblBaseFare" text="$120.00"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Taxes & Fees:" style="-fx-min-width: 120;"/>
+                                <Pane HBox.hgrow="ALWAYS"/>
+                                <Label text="$18.50"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <Label text="Concession Discount:" style="-fx-min-width: 120; -fx-text-fill: #27ae60;"/>
+                                <Pane HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lblDiscount" text="-$30.00" style="-fx-text-fill: #27ae60;"/>
+                            </HBox>
+                            <Separator/>
+                            <HBox spacing="10">
+                                <Label text="Total Amount:" style="-fx-font-weight: bold; -fx-min-width: 120;"/>
+                                <Pane HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lblTotalAmount" text="$108.50" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #e74c3c;"/>
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 6;">
+                            <Label text="Payment Status: PAID" style="-fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+                            <Label text="Payment Method: Credit Card ****1234" styleClass="small"/>
+                        </VBox>
+                    </VBox>
+                </HBox>
+
+                <!-- Important Information -->
+                <VBox spacing="15" styleClass="card" prefWidth="800">
+                    <Label text="Important Information" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                    <VBox spacing="8">
+                        <HBox spacing="10">
+                            <Label text="•" style="-fx-font-weight: bold;"/>
+                            <Label text="Check-in opens 48 hours before departure and closes 60 minutes before departure" styleClass="small" wrapText="true"/>
+                        </HBox>
+                        <HBox spacing="10">
+                            <Label text="•" style="-fx-font-weight: bold;"/>
+                            <Label text="Please carry a valid government-issued ID proof" styleClass="small" wrapText="true"/>
+                        </HBox>
+                        <HBox spacing="10">
+                            <Label text="•" style="-fx-font-weight: bold;"/>
+                            <Label text="Baggage allowance: 15kg check-in + 7kg cabin" styleClass="small" wrapText="true"/>
+                        </HBox>
+                        <HBox spacing="10">
+                            <Label text="•" style="-fx-font-weight: bold;"/>
+                            <Label text="Web check-in recommended to avoid queues" styleClass="small" wrapText="true"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="📄 Print Ticket" onAction="#handlePrint" styleClass="btn-primary"/>
+                    <Button text="📧 Email Receipt" onAction="#handleEmail" styleClass="btn-ghost"/>
+                    <Button text="➕ New Booking" onAction="#handleNewBooking" styleClass="btn-ghost"/>
+                    <Button text="🏠 Dashboard" onAction="#handleDashboard" styleClass="btn-ghost"/>
+                </HBox>
+
+                <!-- QR Code Placeholder -->
+                <VBox spacing="10" alignment="CENTER" styleClass="card" prefWidth="800">
+                    <Label text="Boarding Pass QR Code" style="-fx-font-weight: bold;"/>
+                    <Rectangle width="150" height="150" fill="white" stroke="#bdc3c7" strokeWidth="1"
+                               style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                        <effect>
+                            <InnerShadow radius="5" color="rgba(0,0,0,0.2)"/>
+                        </effect>
+                    </Rectangle>
+                    <Label text="Scan at airport for quick boarding" styleClass="small"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

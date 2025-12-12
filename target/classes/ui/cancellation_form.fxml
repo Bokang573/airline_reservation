@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.CancellationFormController"
+            stylesheets="@/styles/airlink-theme.css"
+            style="-fx-background-color: #f8fafc;">
+
+    <top>
+        <VBox spacing="0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+            <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 20 25 15 25;">
+                <VBox spacing="5">
+                    <Label text="Ticket Cancellation" style="-fx-font-size: 24px; -fx-font-weight: 800; -fx-text-fill: #1a365d;"/>
+                    <Label text="Cancel your flight reservation" style="-fx-font-size: 14px; -fx-text-fill: #718096;"/>
+                </VBox>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <ProgressIndicator progress="0.0" prefWidth="20" prefHeight="20"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-border-color: transparent;">
+            <VBox spacing="25" alignment="TOP_CENTER" style="-fx-padding: 30;">
+
+                <!-- Search Section -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 3);">
+                    <Label text="Find Your Booking" style="-fx-font-size: 18px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtPNRSearch" promptText="Enter PNR Number" style="-fx-pref-width: 300;"/>
+                        <Button fx:id="btnSearch" text="Search Booking" onAction="#handleSearch" style="-fx-background-color: #4299e1; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                        <Button fx:id="btnShowAll" text="Show All Bookings" onAction="#handleShowAll"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Bookings Table -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 3);">
+                    <Label text="Booked Passengers" style="-fx-font-size: 18px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+
+                    <TableView fx:id="tblBookings" prefHeight="300">
+                        <columns>
+                            <TableColumn text="PNR" prefWidth="100">
+                                <cellValueFactory><PropertyValueFactory property="pnr"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Customer Name" prefWidth="150">
+                                <cellValueFactory><PropertyValueFactory property="customerName"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Flight" prefWidth="100">
+                                <cellValueFactory><PropertyValueFactory property="flightCode"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Class" prefWidth="80">
+                                <cellValueFactory><PropertyValueFactory property="seatClass"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Travel Date" prefWidth="120">
+                                <cellValueFactory><PropertyValueFactory property="travelDate"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Seat" prefWidth="80">
+                                <cellValueFactory><PropertyValueFactory property="seatNumber"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Status" prefWidth="100">
+                                <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Cancellation Details -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 3);">
+                    <Label text="Cancellation Details" style="-fx-font-size: 18px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+
+                    <GridPane hgap="15" vgap="12">
+                        <columnConstraints>
+                            <ColumnConstraint percentWidth="30" />
+                            <ColumnConstraint percentWidth="70" />
+                        </columnConstraints>
+
+                        <Label text="Selected PNR:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label fx:id="lblSelectedPNR" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Label text="Customer:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label fx:id="lblCustomerName" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <Label text="Refund Amount:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label fx:id="lblRefundAmount" text="₹0.00" style="-fx-text-fill: #e53e3e; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+
+                    <HBox spacing="15" alignment="CENTER_RIGHT" style="-fx-padding: 20 0 0 0;">
+                        <Button text="Clear" onAction="#handleClear"/>
+                        <Button fx:id="btnCancelTicket" text="Cancel Ticket" onAction="#handleCancelTicket"
+                                style="-fx-background-color: #e53e3e; -fx-text-fill: white; -fx-font-weight: bold;"
+                                disable="true"/>
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

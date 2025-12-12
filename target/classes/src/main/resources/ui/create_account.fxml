@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.CreateAccountController"
+            stylesheets="@../styles/airlink-theme.css"
+            style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+
+    <VBox spacing="18" alignment="CENTER" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <VBox spacing="12" alignment="CENTER" style="-fx-background-color: rgba(255,255,255,0.12); -fx-background-radius:20; -fx-padding:30;">
+            <Label text="Create New AirLink Account" style="-fx-font-size:20px; -fx-text-fill:white;"/>
+            <VBox spacing="8" style="-fx-padding:8 0 0 0; min-width:320px;">
+                <Label text="Full Name" style="-fx-text-fill:white;"/>
+                <TextField fx:id="txtFullName" promptText="Full name"/>
+                <Label text="Email" style="-fx-text-fill:white;"/>
+                <TextField fx:id="txtEmail" promptText="Email address"/>
+                <Label text="Username" style="-fx-text-fill:white;"/>
+                <TextField fx:id="txtUsername" promptText="Username"/>
+                <Label text="Password" style="-fx-text-fill:white;"/>
+                <PasswordField fx:id="txtPassword" promptText="Password"/>
+                <Label text="Confirm Password" style="-fx-text-fill:white;"/>
+                <PasswordField fx:id="txtConfirmPassword" promptText="Confirm password"/>
+            </VBox>
+
+            <HBox spacing="12" alignment="CENTER">
+                <Button fx:id="btnCreate" text="Create" onAction="#handleCreateAccount"/>
+                <Hyperlink fx:id="btnBack" text="Back to Login" onAction="#handleBackToLogin"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

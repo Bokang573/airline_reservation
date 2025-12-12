@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.FlightSelectionController"
+            stylesheets="@../styles/airline-theme.css"
+            stylesheets="@/styles/airlink-theme.css">
+
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="Select Flight - Step 2 of 4"
+                   style="-fx-font-size:22px; -fx-font-weight:700;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <ProgressIndicator progress="0.5"/>
+            <Label text="Step 2 of 4" styleClass="small"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 25;">
+
+                <!-- Customer Info Summary -->
+                <VBox spacing="10" styleClass="card" prefWidth="800">
+                    <Label text="Passenger Details"
+                           style="-fx-font-size:16px; -fx-font-weight:700;"/>
+                    <HBox spacing="30">
+                        <VBox spacing="5">
+                            <Label text="Passenger:" styleClass="small"/>
+                            <Label fx:id="lblPassengerName" text="John Doe" style="-fx-font-weight:600;"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Travel Date:" styleClass="small"/>
+                            <Label fx:id="lblTravelDate" text="2024-12-15" style="-fx-font-weight:600;"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Concession:" styleClass="small"/>
+                            <Label fx:id="lblConcession" text="None" style="-fx-font-weight:600;"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Available Flights -->
+                <VBox spacing="15" styleClass="card" prefWidth="800">
+                    <Label text="Available Flights"
+                           style="-fx-font-size:18px; -fx-font-weight:700; -fx-text-fill:#2c3e50;"/>
+
+                    <TableView fx:id="flightsTable" prefHeight="300">
+                        <columns>
+                            <TableColumn text="Flight" prefWidth="80">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="flightNumber" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Route" prefWidth="150">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="route" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Departure" prefWidth="120">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="departureTime" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Arrival" prefWidth="120">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="arrivalTime" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Duration" prefWidth="80">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="duration" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Economy" prefWidth="80">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="economyPrice" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Business" prefWidth="80">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="businessPrice" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Available" prefWidth="80">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="availableSeats" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+
+                    <!-- Flight Details -->
+                    <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 6;">
+                        <Label text="Selected Flight Details" style="-fx-font-weight: 600;"/>
+                        <GridPane hgap="10" vgap="8">
+                            <Label text="Flight:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label fx:id="lblSelectedFlight" text="None selected" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                            <Label text="Route:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label fx:id="lblSelectedRoute" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                            <Label text="Timing:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label fx:id="lblSelectedTiming" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                            <Label text="Class:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <ComboBox fx:id="cmbClass" promptText="Select class" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String>Economy Class</String>
+                                        <String>Business Class</String>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+                        </GridPane>
+                    </VBox>
+                </VBox>
+
+                <!-- Navigation Buttons -->
+                <HBox spacing="15" alignment="CENTER_RIGHT">
+                    <Button text="← Back" onAction="#handleBack" styleClass="btn-ghost"/>
+                    <Button text="Next: Select Seat →" onAction="#handleNext" styleClass="btn-primary"
+                            disable="true" fx:id="btnNext"/>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.airline.reservation.ui.PagingController">
+    <Label text="Pagination Demo" style="-fx-font-size:14px;"/>
+    <Pagination fx:id="pager" pageCount="5" maxPageIndicatorCount="5"/>
+    <Button text="Back" onAction="#backToMenu"/>
+</VBox>

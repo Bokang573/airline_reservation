@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.BookingController"
+            prefHeight="760" prefWidth="1180">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="top-bar">
+            <Label text="Bookings Management" styleClass="top-bar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="✚ New Booking" fx:id="btnNewBooking" onAction="#handleNewBooking" styleClass="btn-success"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent;">
+            <VBox spacing="30" alignment="TOP_CENTER">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <!-- Booking Form Card -->
+                <VBox spacing="20" prefWidth="980" maxWidth="980" styleClass="form-card">
+                    <Label text="Create New Booking" styleClass="form-title"/>
+
+                    <GridPane hgap="25" vgap="20" styleClass="form-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25"/>
+                            <ColumnConstraints percentWidth="25"/>
+                            <ColumnConstraints percentWidth="25"/>
+                            <ColumnConstraints percentWidth="25"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints prefHeight="40"/>
+                            <RowConstraints prefHeight="40"/>
+                            <RowConstraints prefHeight="40"/>
+                        </rowConstraints>
+
+                        <!-- Flight Selection -->
+                        <Label text="Select Flight *" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cmbFlights" promptText="Choose flight..." GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                        <!-- Departure Date -->
+                        <Label text="Departure Date" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <DatePicker fx:id="dpTravelDate" promptText="Select date" GridPane.rowIndex="0" GridPane.columnIndex="3" styleClass="input-field"/>
+
+                        <!-- Passenger -->
+                        <Label text="Passenger *" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cmbPassengers" promptText="Select passenger..." GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                        <!-- Seat Number -->
+                        <Label text="Seat Number *" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtSeatNumber" promptText="e.g., 12A" GridPane.rowIndex="1" GridPane.columnIndex="3" styleClass="input-field"/>
+
+                        <!-- Ticket Class -->
+                        <Label text="Ticket Class *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cmbTicketClass" promptText="Select class..." GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                        <!-- Total Price -->
+                        <Label text="Total Price" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                        <Label fx:id="lblPrice" text="\$0.00" GridPane.rowIndex="2" GridPane.columnIndex="3" styleClass="price-label"/>
+                    </GridPane>
+
+                    <!-- Form Buttons -->
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button text="Clear Form" onAction="#handleClearForm" styleClass="btn-secondary"/>
+                        <Button text="Create Booking" onAction="#handleCreateBooking" styleClass="btn-success"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Bottom Status Bar -->
+                <HBox spacing="20" alignment="CENTER">
+                    <Label fx:id="lblStatus" text="Ready" styleClass="status-label"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblBookingCount" text="0 Active Bookings" styleClass="status-label"/>
+                    <Button text="Close Window" onAction="#handleClose" styleClass="btn-danger"/>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

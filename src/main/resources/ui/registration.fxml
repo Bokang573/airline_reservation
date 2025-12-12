@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.RegisterController"
+            style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+
+    <VBox spacing="18" alignment="CENTER"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <VBox spacing="12" alignment="CENTER"
+              style="-fx-background-color: rgba(255,255,255,0.15);
+                     -fx-background-radius: 20;
+                     -fx-padding: 30;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 20, 0, 0, 8);">
+
+            <Label text="Create New Account"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <Label text="Fill in your details to register"
+                   style="-fx-text-fill: #dfe6e9;"/>
+
+            <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0;">
+
+                <Label text="Full Name" style="-fx-text-fill: white;"/>
+                <TextField fx:id="txtName" promptText="Enter full name"
+                           style="-fx-background-radius: 8; -fx-background-color: rgba(255,255,255,0.9);"/>
+
+                <Label text="Email" style="-fx-text-fill: white;"/>
+                <TextField fx:id="txtEmail" promptText="Enter email"
+                           style="-fx-background-radius: 8; -fx-background-color: rgba(255,255,255,0.9);"/>
+
+                <Label text="Username" style="-fx-text-fill: white;"/>
+                <TextField fx:id="txtUsername" promptText="Choose username"
+                           style="-fx-background-radius: 8; -fx-background-color: rgba(255,255,255,0.9);"/>
+
+                <Label text="Password" style="-fx-text-fill: white;"/>
+                <PasswordField fx:id="txtPassword" promptText="Enter password"
+                               style="-fx-background-radius: 8; -fx-background-color: rgba(255,255,255,0.9);"/>
+
+                <Label text="Confirm Password" style="-fx-text-fill: white;"/>
+                <PasswordField fx:id="txtConfirm" promptText="Re-enter password"
+                               style="-fx-background-radius: 8; -fx-background-color: rgba(255,255,255,0.9);"/>
+
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER">
+
+                <Button fx:id="btnRegister" text="Create Account" onAction="#handleRegister"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 20;"/>
+
+                <Hyperlink fx:id="linkBack" text="Back to Login" onAction="#handleBack"
+                           style="-fx-text-fill: #dfe6e9; -fx-underline: true;"/>
+
+            </VBox>
+
+        </VBox>
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.SeatSelectionController"
+            stylesheets="@../styles/airlink-theme.css">
+
+    <top>
+        <HBox spacing="18" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="Seat Selection - Step 3 of 4" style="-fx-font-size:22px; -fx-font-weight:700;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <ProgressBar progress="0.75" prefWidth="200"/>
+            <Label text="Step 3 of 4" styleClass="small"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="25" alignment="TOP_CENTER" style="-fx-padding: 25;">
+
+                <!-- Flight Summary -->
+                <HBox spacing="30" styleClass="card" prefWidth="800" alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="Flight Details" style="-fx-font-weight:700; -fx-text-fill:#2c3e50;"/>
+                        <Label fx:id="lblFlightInfo" text="AL101 - Delhi → Mumbai" style="-fx-font-weight:600;"/>
+                        <Label fx:id="lblClassInfo" text="Economy Class" styleClass="small"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Passenger" style="-fx-font-weight:700; -fx-text-fill:#2c3e50;"/>
+                        <Label fx:id="lblPassengerName" text="John Doe" style="-fx-font-weight:600;"/>
+                        <Label fx:id="lblConcession" text="Student (25% discount)" styleClass="small"/>
+                    </VBox>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <VBox spacing="5" alignment="CENTER_RIGHT">
+                        <Label text="Base Fare" style="-fx-font-weight:700; -fx-text-fill:#2c3e50;"/>
+                        <Label fx:id="lblBaseFare" text="$120" style="-fx-font-weight:600;"/>
+                        <Label fx:id="lblFinalFare" text="$90" style="-fx-font-weight:700; -fx-text-fill:#27ae60; -fx-font-size:16px;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Aircraft Layout -->
+                <VBox spacing="20" styleClass="card" prefWidth="800" alignment="CENTER">
+                    <Label text="Select Your Seat" style="-fx-font-size:18px; -fx-font-weight:700;"/>
+
+                    <!-- Aircraft Visualization -->
+                    <VBox spacing="15" alignment="CENTER">
+                        <!-- Cockpit -->
+                        <Rectangle width="200" height="30" arcWidth="20" arcHeight="20"
+                                   fill="linear-gradient(to bottom, #34495e, #2c3e50)"/>
+                        <Label text="✈️ Cockpit" style="-fx-text-fill: #7f8c8d; -fx-font-size: 10px;"/>
+
+                        <!-- Business Class Section -->
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Business Class" style="-fx-font-weight: 600; -fx-text-fill: #e67e22;"/>
+                            <HBox spacing="5" alignment="CENTER">
+                                <VBox spacing="3" alignment="CENTER">
+                                    <HBox spacing="3">
+                                        <Button fx:id="btnSeat1A" text="1A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="1A"/>
+                                        <Button fx:id="btnSeat1B" text="1B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="1B"/>
+                                        <Rectangle width="20" height="1" fill="transparent"/>
+                                        <Button fx:id="btnSeat1C" text="1C" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="1C"/>
+                                        <Button fx:id="btnSeat1D" text="1D" onAction="#selectSeat" styleClass="seat-btn seat-occupied" userData="1D" disable="true"/>
+                                    </HBox>
+                                    <HBox spacing="3">
+                                        <Button fx:id="btnSeat2A" text="2A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="2A"/>
+                                        <Button fx:id="btnSeat2B" text="2B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="2B"/>
+                                        <Rectangle width="20" height="1" fill="transparent"/>
+                                        <Button fx:id="btnSeat2C" text="2C" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="2C"/>
+                                        <Button fx:id="btnSeat2D" text="2D" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="2D"/>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Divider -->
+                        <Rectangle width="300" height="2" fill="#bdc3c7"/>
+
+                        <!-- Economy Class Section -->
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Economy Class" style="-fx-font-weight: 600; -fx-text-fill: #3498db;"/>
+                            <VBox spacing="3" alignment="CENTER">
+                                <!-- Row 10 -->
+                                <HBox spacing="3">
+                                    <Button fx:id="btnSeat10A" text="10A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="10A"/>
+                                    <Button fx:id="btnSeat10B" text="10B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="10B"/>
+                                    <Button fx:id="btnSeat10C" text="10C" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="10C"/>
+                                    <Button fx:id="btnSeat10D" text="10D" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="10D"/>
+                                    <Button fx:id="btnSeat10E" text="10E" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="10E"/>
+                                    <Button fx:id="btnSeat10F" text="10F" onAction="#selectSeat" styleClass="seat-btn seat-occupied" userData="10F" disable="true"/>
+                                </HBox>
+                                <!-- Row 11 -->
+                                <HBox spacing="3">
+                                    <Button fx:id="btnSeat11A" text="11A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="11A"/>
+                                    <Button fx:id="btnSeat11B" text="11B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="11B"/>
+                                    <Button fx:id="btnSeat11C" text="11C" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="11C"/>
+                                    <Button fx:id="btnSeat11D" text="11D" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="11D"/>
+                                    <Button fx:id="btnSeat11E" text="11E" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="11E"/>
+                                    <Button fx:id="btnSeat11F" text="11F" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="11F"/>
+                                </HBox>
+                                <!-- Row 12 -->
+                                <HBox spacing="3">
+                                    <Button fx:id="btnSeat12A" text="12A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="12A"/>
+                                    <Button fx:id="btnSeat12B" text="12B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="12B"/>
+                                    <Button fx:id="btnSeat12C" text="12C" onAction="#selectSeat" styleClass="seat-btn seat-occupied" userData="12C" disable="true"/>
+                                    <Button fx:id="btnSeat12D" text="12D" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="12D"/>
+                                    <Button fx:id="btnSeat12E" text="12E" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="12E"/>
+                                    <Button fx:id="btnSeat12F" text="12F" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="12F"/>
+                                </HBox>
+                                <!-- Row 13 -->
+                                <HBox spacing="3">
+                                    <Button fx:id="btnSeat13A" text="13A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="13A"/>
+                                    <Button fx:id="btnSeat13B" text="13B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="13B"/>
+                                    <Button fx:id="btnSeat13C" text="13C" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="13C"/>
+                                    <Button fx:id="btnSeat13D" text="13D" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="13D"/>
+                                    <Button fx:id="btnSeat13E" text="13E" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="13E"/>
+                                    <Button fx:id="btnSeat13F" text="13F" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="13F"/>
+                                </HBox>
+                                <!-- Row 14 -->
+                                <HBox spacing="3">
+                                    <Button fx:id="btnSeat14A" text="14A" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="14A"/>
+                                    <Button fx:id="btnSeat14B" text="14B" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="14B"/>
+                                    <Button fx:id="btnSeat14C" text="14C" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="14C"/>
+                                    <Button fx:id="btnSeat14D" text="14D" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="14D"/>
+                                    <Button fx:id="btnSeat14E" text="14E" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="14E"/>
+                                    <Button fx:id="btnSeat14F" text="14F" onAction="#selectSeat" styleClass="seat-btn seat-available" userData="14F"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <!-- Exit Signs -->
+                        <HBox spacing="150" alignment="CENTER">
+                            <Label text="🛑 EXIT" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;"/>
+                            <Label text="EXIT 🛑" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Seat Legend -->
+                    <HBox spacing="20" alignment="CENTER">
+                        <HBox spacing="5" alignment="CENTER_LEFT">
+                            <Rectangle width="15" height="15" fill="#27ae60" stroke="#2ecc71" strokeWidth="1"/>
+                            <Label text="Available" styleClass="small"/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER_LEFT">
+                            <Rectangle width="15" height="15" fill="#e74c3c" stroke="#c0392b" strokeWidth="1"/>
+                            <Label text="Occupied" styleClass="small"/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER_LEFT">
+                            <Rectangle width="15" height="15" fill="#3498db" stroke="#2980b9" strokeWidth="2"/>
+                            <Label text="Selected" styleClass="small"/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER_LEFT">
+                            <Rectangle width="15" height="15" fill="#f39c12" stroke="#d35400" strokeWidth="1"/>
+                            <Label text="Window" styleClass="small"/>
+                        </HBox>
+                        <HBox spacing="5" alignment="CENTER_LEFT">
+                            <Rectangle width="15" height="15" fill="#9b59b6" stroke="#8e44ad" strokeWidth="1"/>
+                            <Label text="Aisle" styleClass="small"/>
+                        </HBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Selected Seat Info -->
+                <HBox spacing="20" styleClass="card" prefWidth="800" alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="Selected Seat" style="-fx-font-weight:700;"/>
+                        <Label fx:id="lblSelectedSeat" text="No seat selected" style="-fx-font-size:24px; -fx-font-weight:bold; -fx-text-fill:#3498db;"/>
+                        <Label fx:id="lblSeatType" text="Please select a seat" styleClass="small"/>
+                    </VBox>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <VBox spacing="5" alignment="CENTER_RIGHT">
+                        <Label text="Seat Preferences" style="-fx-font-weight:700;"/>
+                        <HBox spacing="10">
+                            <CheckBox fx:id="chkWindowPreference" text="Window Seat" onAction="#updateSeatPreferences"/>
+                            <CheckBox fx:id="chkAislePreference" text="Aisle Seat" onAction="#updateSeatPreferences"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <!-- Navigation -->
+                <HBox spacing="15" alignment="CENTER_RIGHT">
+                    <Button text="← Back to Flights" onAction="#handleBack" styleClass="btn-ghost"/>
+                    <Button text="Confirm Booking →" onAction="#handleConfirm" styleClass="btn-primary"
+                            fx:id="btnConfirm" disable="true"/>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

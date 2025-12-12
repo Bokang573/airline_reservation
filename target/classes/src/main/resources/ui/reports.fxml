@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.airline.reservation.ui.ReportsController"
+            stylesheets="@../styles/airlink-theme.css">
+
+    <center>
+        <VBox spacing="14" alignment="TOP_CENTER" style="-fx-padding:20;">
+            <HBox spacing="18">
+                <VBox styleClass="card kpi-card" alignment="CENTER">
+                    <Label text="Flights" style="-fx-font-weight:600;"/>
+                    <Label fx:id="lblFlights" text="0"/>
+                </VBox>
+                <VBox styleClass="card kpi-card" alignment="CENTER">
+                    <Label text="Passengers" style="-fx-font-weight:600;"/>
+                    <Label fx:id="lblPassengers" text="0"/>
+                </VBox>
+                <VBox styleClass="card kpi-card" alignment="CENTER">
+                    <Label text="Bookings" style="-fx-font-weight:600;"/>
+                    <Label fx:id="lblBookings" text="0"/>
+                </VBox>
+            </HBox>
+
+            <!-- Charts -->
+            <BarChart fx:id="barChart" prefHeight="240" prefWidth="700">
+                <xAxis>
+                    <CategoryAxis/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis/>
+                </yAxis>
+            </BarChart>
+
+            <PieChart fx:id="pieChart" prefHeight="160"/>
+
+            <!-- Progress indicators -->
+            <HBox spacing="16" alignment="CENTER">
+                <ProgressBar fx:id="progressBar" prefWidth="360" progress="0.0"/>
+                <ProgressIndicator fx:id="progressIndicator" progress="0.0" />
+            </HBox>
+
+            <!-- Pagination + ScrollPane (demonstrates at least 20 dummy items) -->
+            <VBox spacing="8" alignment="CENTER" prefWidth="720">
+                <Pagination fx:id="pagination" pageCount="1" />
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
