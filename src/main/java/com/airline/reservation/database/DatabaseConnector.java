@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DatabaseConnector {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/airline";
+    private static final String URL = "jdbc:postgresql://localhost:5432/airline_clean";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "airlink123";
+    private static final String PASSWORD = "airline123";
 
     public static Connection connect() {
         try {
